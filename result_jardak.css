@@ -1,0 +1,102 @@
+/* jardak.css */
+
+:root {
+  --clr-primary: #6f42c1;         /* Royal purple, classy and sharp */
+  --clr-accent: #5936a2;          /* Deeper violet for hover */
+  --clr-secondary: #f3edfc;       /* Lavender background */
+  --clr-text: #212529;
+  --clr-muted: #6c757d;
+  --clr-white: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #f3edfc, #e5dbf5);
+  color: var(--clr-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main {
+  width: 100%;
+}
+
+.card {
+  background-color: var(--clr-white);
+  border-radius: 1.5rem;
+  box-shadow: 0 0 25px rgba(111, 66, 193, 0.15);
+  max-width: 28rem;
+  margin: auto;
+  padding: 3rem 2rem;
+  border-top: 6px solid var(--clr-primary);
+  animation: fadeBounce 0.4s ease-in-out;
+}
+
+h2.doctor-name {
+  color: var(--clr-primary);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+p.doctor-bio {
+  color: var(--clr-muted);
+  font-size: 1rem;
+  margin-bottom: 1.75rem;
+  font-style: italic;
+}
+
+img {
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border: 4px solid var(--clr-primary);
+  box-shadow: 0 0 10px rgba(111, 66, 193, 0.2);
+}
+
+.btn-primary {
+  background-color: var(--clr-primary);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.7rem 1.75rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--clr-accent);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+@keyframes fadeBounce {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  h2.doctor-name {
+    font-size: 1.5rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}
