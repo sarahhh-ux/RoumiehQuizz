@@ -1,50 +1,71 @@
-/* main.css */
 
-/* ---------- Color Palette ---------- */
 :root {
-  --clr-primary: #ff4da6;      /* Bold pink */
-  --clr-accent: #e60073;       /* Deeper pink for hovers */
-  --clr-secondary: #fff0f6;    /* Soft blush background */
-  --clr-text: #212529;         /* Main text color */
-  --clr-muted: #6c757d;        /* Muted gray */
+  --clr-primary: #e60073; /* Slightly deeper, more elegant pink for primary actions/headings */
+  --clr-accent: #b3005a; /* Even deeper pink for hover effects and strong emphasis */
+  --clr-secondary: #fff0f5; /* Soft, delicate blush background */
+  --clr-text: #2c3e50; /* Dark Charcoal - professional, high contrast text */
+  --clr-muted: #7f8c8d; /* Muted gray for secondary text */
   --clr-white: #ffffff;
+  --clr-border-light: #ffcce6; /* A lighter pink for subtle borders */
 }
 
-/* ---------- Global Reset ---------- */
+/* ---------- Global Reset & Typography ---------- */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Open Sans', sans-serif; /* Modern, readable sans-serif */
   background-color: var(--clr-white);
   color: var(--clr-text);
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+  line-height: 1.7; /* Slightly increased for better readability */
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
 h1, h2, h3, h4, h5 {
+  font-family: 'Playfair Display', serif; /* Elegant serif for headings */
   font-weight: 700;
   color: var(--clr-primary);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3rem; /* Larger hero heading */
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 a {
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s ease, transform 0.2s ease;
+  color: var(--clr-primary); /* Default link color */
+}
+
+a:hover {
+  color: var(--clr-accent);
+  transform: translateY(-1px);
 }
 
 p {
-  font-size: 1rem;
+  font-size: 1.05rem; /* Slightly larger base text */
+  margin-bottom: 1rem;
 }
 
 /* ---------- Navbar ---------- */
 .navbar {
   background-color: var(--clr-white);
-  border-bottom: 4px solid var(--clr-primary);
-  padding: 1rem 0;
+  border-bottom: 2px solid var(--clr-primary); /* Thinner, but still strong line */
+  padding: 0.8rem 0; /* Slightly less vertical padding */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
 }
 
 .navbar-brand {
   color: var(--clr-primary);
-  font-weight: bold;
-  font-size: 1.25rem;
+  font-weight: 700; /* Bolder for brand */
+  font-size: 1.6rem; /* Larger brand text */
+  font-family: 'Playfair Display', serif; /* Elegant font for brand */
 }
 
 .navbar-brand:hover {
@@ -53,100 +74,190 @@ p {
 
 .nav-link {
   color: var(--clr-text);
-  font-weight: 500;
+  font-weight: 600; /* A bit bolder */
+  padding: 0.5rem 1rem; /* More generous padding */
+  transition: all 0.3s ease;
+  border-radius: 5px; /* Slight roundness */
 }
 
 .nav-link.active,
 .nav-link:hover {
   color: var(--clr-primary);
+  background-color: rgba(230, 0, 115, 0.05); /* Very subtle blush background on hover/active */
 }
 
+.nav-item .btn-primary {
+  padding: 0.6rem 1.8rem; /* Larger button in nav */
+  border-radius: 25px; /* Pill shape */
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ---------- Buttons General ---------- */
 .btn-primary {
   background-color: var(--clr-primary);
   border: none;
   font-weight: 600;
-  color: white;
-  transition: background-color 0.3s, transform 0.2s;
-  padding: 0.5rem 1.25rem;
+  color: var(--clr-white);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  padding: 0.8rem 1.8rem; /* Consistent padding for all primary buttons */
   border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(230, 0, 115, 0.2); /* Soft shadow for depth */
 }
 
 .btn-primary:hover {
   background-color: var(--clr-accent);
-  transform: scale(1.05);
+  transform: translateY(-2px); /* Subtle lift */
+  box-shadow: 0 6px 15px rgba(230, 0, 115, 0.3); /* Enhanced shadow on hover */
 }
 
-/* ---------- Hero Section ---------- */
+/* ---------- Hero Section (for index.html) ---------- */
+/* Assuming hero section is a <section> with text-center in index.html */
+section.text-center {
+  padding: 5rem 0; /* More vertical space */
+  background-color: var(--clr-secondary); /* Soft blush background for hero */
+}
+
 section.text-center h1 {
-  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--clr-primary);
 }
 
 section.text-center p {
   color: var(--clr-muted);
+  max-width: 700px;
+  margin: 0 auto 2rem auto; /* Center paragraph, add space below */
+  font-size: 1.15rem;
 }
 
-/* ---------- Stats Cards ---------- */
+/* ---------- General Section Styling (for all pages) ---------- */
+/* Using nth-of-type for alternating backgrounds, which will apply if your sections are siblings */
+section {
+  padding: 4rem 0; /* Consistent section padding */
+}
+
+section:nth-of-type(odd) { /* Applies to 1st, 3rd, 5th sections etc. on a page */
+  background-color: var(--clr-white); /* White background for sections */
+}
+
+section:nth-of-type(even) { /* Applies to 2nd, 4th, 6th sections etc. on a page */
+  background-color: var(--clr-secondary); /* Soft blush background for sections */
+}
+
+
+/* ---------- Cards (for Stats/Features in index.html) ---------- */
 .card {
-  border: none;
-  background-color: var(--clr-secondary);
-  border-left: 5px solid var(--clr-primary);
-  transition: transform 0.3s ease;
-  border-radius: 0.5rem;
+  border: 1px solid var(--clr-border-light); /* Subtle border */
+  background-color: var(--clr-white); /* White card background */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.75rem; /* More rounded corners */
+  padding: 1.5rem; /* Internal padding */
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft general card shadow */
 }
 
 .card-hover:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(255, 77, 166, 0.2);
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
 }
 
 .card h3 {
-  color: var(--clr-accent);
-  font-size: 2rem;
+  color: var(--clr-accent); /* Accent color for card numbers/titles */
+  font-size: 2.2rem; /* Larger font for numbers */
+  margin-bottom: 0.5rem;
 }
 
-/* ---------- Testimonials ---------- */
+.card p {
+  color: var(--clr-muted);
+  font-size: 1rem;
+}
+
+/* ---------- Testimonials (for index.html) ---------- */
+/* This specific testimonial styling is for the ones shown on the homepage */
 .testimonial {
-  background-color: var(--clr-secondary);
-  border-left: 5px solid var(--clr-primary);
-  padding: 1.25rem;
-  border-radius: 0.5rem;
+  background-color: var(--clr-white); /* White background for individual testimonials */
+  border-left: 5px solid var(--clr-primary); /* Strong primary line */
+  padding: 1.5rem; /* More padding */
+  border-radius: 0.75rem; /* Consistent border radius */
   color: var(--clr-text);
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft shadow */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: flex; /* Use flex for internal layout */
+  flex-direction: column;
+  justify-content: space-between; /* Pushes signature to bottom */
+  height: 100%; /* Ensures equal height in grid */
 }
 
 .testimonial:hover {
-  box-shadow: 0 0 15px rgba(255, 77, 166, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+  transform: translateY(-3px); /* Subtle lift */
 }
 
 blockquote {
   font-style: italic;
   color: var(--clr-muted);
+  margin-bottom: 1rem; /* Space before citation */
+  font-size: 1.05rem;
 }
+
+.testimonial-author { /* Assuming you have a span/div for the author in testimonials */
+  font-weight: 600;
+  color: var(--clr-primary);
+  margin-top: auto; /* Pushes author to bottom */
+}
+
 
 /* ---------- Footer ---------- */
 footer {
   background-color: var(--clr-primary);
-  color: white;
-  font-size: 0.9rem;
+  color: var(--clr-white);
+  font-size: 0.85rem;
+  padding: 1.5rem 1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05); /* Subtle top shadow */
+  margin-top: 3rem; /* Default margin from content above */
 }
 
 footer small {
-  opacity: 0.95;
+  opacity: 0.9;
+  font-weight: 300;
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 992px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  section { padding: 3rem 0; }
+  .hero-section { padding: 4rem 0; } /* Specific override for hero if needed */
+}
+
 @media (max-width: 768px) {
   .navbar-nav {
     text-align: center;
-    gap: 1rem;
+    gap: 0.5rem;
     margin-top: 1rem;
   }
-
+  .nav-item .btn-primary {
+    width: 100%; /* Full width button in collapsed nav */
+    margin-top: 0.5rem;
+  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.8rem; }
+  p { font-size: 1rem; }
   .btn-primary {
-    width: 100%;
+    padding: 0.7rem 1.5rem;
+    width: auto; /* Reset width for general usage outside nav */
+    display: inline-block;
   }
+  .card, .testimonial {
+    margin-bottom: 1.5rem; /* Space between grid items */
+  }
+}
 
-  .card {
-    min-width: 100% !important;
-  }
+@media (max-width: 576px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.6rem; }
+  section { padding: 2rem 0; }
+  .hero-section { padding: 3rem 0; }
 }

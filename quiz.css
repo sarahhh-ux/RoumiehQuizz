@@ -1,0 +1,161 @@
+/* quiz.css */
+
+:root {
+  --clr-primary: #ff4da6;         /* Main pink */
+  --clr-accent: #e60073;          /* Darker pink for hover */
+  --clr-secondary: #fff0f6;       /* Soft pink background */
+  --clr-text: #212529;
+  --clr-muted: #6c757d;
+  --clr-white: #ffffff;
+}
+
+body {
+  background-color: var(--clr-secondary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--clr-text);
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--clr-white);
+  border-bottom: 4px solid var(--clr-primary);
+}
+
+.navbar-brand {
+  color: var(--clr-primary);
+  font-weight: bold;
+}
+
+.navbar-brand:hover {
+  color: var(--clr-accent);
+}
+
+.nav-link {
+  color: var(--clr-text);
+  font-weight: 500;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: var(--clr-primary);
+}
+
+.btn-primary {
+  background-color: var(--clr-primary);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--clr-accent);
+  transform: scale(1.05);
+}
+
+/* Quiz Layout */
+#quizApp {
+  max-width: 720px;
+  margin: auto;
+  background-color: var(--clr-white);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(255, 77, 166, 0.1);
+  transition: all 0.5s ease;
+}
+
+.progress {
+  background-color: #ffe5f2;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.progress-bar.bg-primary {
+  background-color: var(--clr-primary);
+  transition: width 0.4s ease;
+}
+
+/* Questions & Options */
+.question-container {
+  display: none;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.question-container.active {
+  display: block;
+}
+
+.question {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--clr-primary);
+  animation: fadeIn 0.5s ease;
+}
+
+.option {
+  border: 2px solid var(--clr-primary);
+  border-radius: 30px;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--clr-secondary);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  animation: fadeIn 0.6s ease;
+}
+
+.option:hover {
+  background-color: var(--clr-primary);
+  color: white;
+  transform: scale(1.02);
+}
+
+.option.selected {
+  background-color: var(--clr-primary);
+  color: white;
+  font-weight: bold;
+  border-color: var(--clr-accent);
+}
+
+/* Footer */
+footer {
+  background-color: var(--clr-primary);
+  color: white;
+  font-size: 0.9rem;
+  padding: 1rem;
+  letter-spacing: 0.5px;
+  margin-top: 3rem;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+
+  #quizApp {
+    padding: 1.5rem 1rem;
+  }
+}
